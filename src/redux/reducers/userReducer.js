@@ -1,4 +1,4 @@
-let initialState ={
+let initialState = {
     userList: [
         {
             id: 1,
@@ -18,22 +18,23 @@ let initialState ={
         },
     ],
 
-    editUser: null
+    editUser: {},
+    keyword: '',
 }
 
 export const userReducer = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         // Xóa user
         case "DELETE_USER":
             let userList = [...state.userList];
-            userList = userList.filter(user=> user.id !== action.payload )
+            userList = userList.filter(user => user.id !== action.payload)
 
             state.userList = userList
-            return {...state};
-        
+            return { ...state };
+
         case "SUBMIT": {
             console.log(action);
-            const user = {...action.payload,id: Math.random()};
+            const user = { ...action.payload, id: Math.random() };
             console.log(user);
 
             // tạo một mảng userList mới và add thêm một user vào
@@ -42,15 +43,31 @@ export const userReducer = (state = initialState, action) => {
             // gắn mảng hiện tại bằng mảng mới vừa cập nhật 
             state.userList = addList
 
-            return {...state};
+            return { ...state };
         }
 
         case "EDIT": {
             console.log(action);
             state.editUser = action.payload;
-            return {...state};
+            return { ...state };
         }
-        default:
-            return {...state};
+
+        case "GET_KEYWORD": {
+            state.keyword = action.payload
+            return { ...state }
+        }
+
+        // case "CHANGE_USER_EDIT": {
+        //     let { name, value } = action.payload;
+        //     state.editUser[name] = value;
+        //     let editUserUpdate = { ...state.editUser };
+        //     return { ...state, editUser: editUserUpdate }
+
+        // }
+        default: {
+            return { ...state };
+        }
+
     }
+
 }

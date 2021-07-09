@@ -16,6 +16,7 @@ import './App.css';
 // import DemoXemChiTiet from './Props/DemoXemChiTiet/DemoXemChiTiet';
 // import DanhSachSanPhamRedux from './DemoRedux/BTGioHangRedux/DanhSachSanPhamRedux';
 import Home from './user-management-redux'
+// import ReactClassLifeCycle from './ReactClassLifeCycle/ReactClassLifeCycle';
 
 function App() { //Component gốc của ứng dụng
   const arrProduct = [
@@ -157,6 +158,7 @@ function App() { //Component gốc của ứng dụng
         {/* <DemoXemChiTiet /> */}
         {/* <DanhSachSanPhamRedux /> */}
         <Home />
+        {/* <ReactClassLifeCycle></ReactClassLifeCycle> */}
     </div>
   );
 }

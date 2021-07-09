@@ -6,7 +6,7 @@ class UserItem extends Component {
     let { user, deleteUser, editUser } = this.props;
     return (
       <tr>
-        <td>{user.id}</td>
+        <td>{user.name}</td>
         <td>{user.username}</td>
         <td>{user.email}</td>
         <td>{user.phoneNumber}</td>
